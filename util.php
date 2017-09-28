@@ -80,7 +80,7 @@ function scrape_tl_events($months, $game_id) {
         $time = trim($event_node['.ev-timer']->text());
         $name = trim($event_node['.ev-ctrl']->text());
         $id = trim($event_node['.ev-ctrl > span']->attr('data-event-id'));
-        $timestamp = strtotime("{$date_str} {$time}:00 GMT+0100");
+        $timestamp = strtotime("{$date_str} {$time}:00 GMT+0200");
         $month_events[] = array(
           'timestamp' => date('U', $timestamp),
           'name' => $name,
