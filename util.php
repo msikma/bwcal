@@ -59,7 +59,7 @@ function scrape_tl_events($months, $game_id) {
     }
     
     $month_events = array();
-    $url = get_cal_url($year, $month, $game_id);
+    $url = get_cal_url($year, $month, $game_id, false);
     $res = json_decode(file_get_contents($url), true);
     $doc = phpQuery::newDocumentHTML($res['html']);
     // Note: ensure we only select items from the current month. Ignore .mo_out.
