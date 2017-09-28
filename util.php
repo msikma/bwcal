@@ -99,6 +99,8 @@ function scrape_tl_events($months, $game_id) {
 
 function generate_calendar($events) {
   $cal = new \Eluceo\iCal\Component\Calendar('www.teamliquid.net');
+  $cal->setName('TL Brood War Events');
+  $cal->setDescription('Events taken from Team Liquid\'s Brood War calendar.');
   
   foreach ($events as $event) {
     $ev = new \Eluceo\iCal\Component\Event();
