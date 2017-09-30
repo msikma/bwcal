@@ -59,7 +59,7 @@ function scrape_tl_events($months, $game_id) {
     }
     
     $month_events = array();
-    $url = get_cal_url($year, $month, $game_id, false);
+    $url = get_cal_url($year, $month, $game_id, true);
     $res = json_decode(file_get_contents($url), true);
     $doc = phpQuery::newDocumentHTML($res['html']);
     // Note: ensure we only select items from the current month. Ignore .mo_out.
@@ -71,7 +71,7 @@ function scrape_tl_events($months, $game_id) {
       preg_match_all('!\d+!', $day_number_raw, $day_number_matches);
       $day_number = $day_number_matches[0][0];
       $date_str = "{$year}-{$month}-{$day_number}";
-      $link = get_cal_url($year, $month, $game_id);
+      $link = get_cal_url($year, $month, $game_id, false);
       
       // Extract events.
       $day_events = $day_node['.ev-block'];
